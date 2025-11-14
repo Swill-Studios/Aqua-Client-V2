@@ -31,6 +31,7 @@
 			z-index: 9999;
 			opacity: 1;
 			transition: opacity 1s;
+			flex-direction: column;
 		}
 
 		/* Make the loading image cover the entire screen */
@@ -41,6 +42,30 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+		}
+
+		/* Loading text with animated dots */
+		#loading-text {
+			position: absolute;
+			bottom: 10%;
+			width: 100%;
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-size: 2em;
+			color: #ffffff;
+			text-shadow: 0 0 10px rgba(0,0,0,0.7);
+		}
+
+		#dots {
+			display: inline-block;
+			animation: dots 1s steps(3, end) infinite;
+		}
+
+		@keyframes dots {
+			0%, 20% { content: ""; }
+			40% { content: "."; }
+			60% { content: ".."; }
+			80%, 100% { content: "..."; }
 		}
 	</style>
 	<!-- ----------------------------- -->
@@ -87,6 +112,7 @@
 		<!-- Custom loading screen -->
 		<div id="custom-loading">
 			<img src="loading.png" id="loading-img">
+			<div id="loading-text">Loading<span id="dots"></span></div>
 		</div>
 
 		<!-- Game container -->
